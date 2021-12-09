@@ -21,7 +21,7 @@ const schema = new m.Schema({
 let user = m.model('user', schema);
 
 app.use(bodyParser.urlencoded({extended:true})).all('/login/', (req, res) => {
-    res.set(headerTEXT).send('artem.wr');;
+    res.set(headerTEXT).send('artem_wr');;
 })
 app.all('/', async (req, res) => {
     res.set(headerTEXT);
