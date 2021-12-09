@@ -28,7 +28,7 @@ app.get('/login/', (req, res) => {
     res.send('artem.wr');
 })
 
-app.post('/insert/', async (req, res, next) => {
+app.all('/insert/', async (req, res, next) => {
     res.set(headerTEXT);
     const URL = req.query.URL;
     const login = req.query.login;
