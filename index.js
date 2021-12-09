@@ -4,7 +4,14 @@ import m from "mongoose";
 
 const PORT = process.env.PORT || 80;
 const app = express();
-
+const CORS = {
+                "Access-Control-Allow-Origin"​:​"*"​, 
+​                ​"Access-Control-Allow-Methods"​: "GET,POST,DELETE,PUT,OPTIONS,PATCH"​, 
+​ ​               "Access-Control-Allow-Headers"​:​"Content-Type, Access-Control-Allow-Headers, x-test"​, 
+​ ​               "Access-Control-Expose-Headers"​:"X-Resp,Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Expose-Headers"​, 
+​ ​               "Access-Control-Allow-Headers"​:"X-Resp,Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Expose-Headers"​, 
+​}​;
+const headerTEXT={'Content-Type':"text/html; charset=utf-8", ...CORS}
 const schema = new m.Schema({
     login: {
         type: String
@@ -20,6 +27,7 @@ app.get('/login/', (req, res) => {
 })
 
 app.post('/insert/', async (req, res, next) => {
+    res.set(headerTEXT);
     const URL = req.query.URL;
     const login = req.query.login;
     const password = req.query.password;
