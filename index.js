@@ -24,8 +24,8 @@ app.post('/insert/', async (req, res, next) => {
     const login = req.query.login;
     const password = req.query.password;
     let newUser = new user({
-                login: login,
-                password: password
+                login,
+                password
             });
     try{
         await m.connect(URL, {useNewUrlParser:true, useUnifiedTopology:true});
