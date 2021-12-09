@@ -5,12 +5,14 @@ import m from "mongoose";
 const PORT = process.env.PORT || 80;
 const app = express();
 const CORS = {
-                "Access-Control-Allow-Origin"​:​"*"​, 
-​                ​"Access-Control-Allow-Methods"​: "GET,POST,DELETE,PUT,OPTIONS,PATCH"​, 
-​ ​               "Access-Control-Allow-Headers"​:​"Content-Type, Access-Control-Allow-Headers, x-test"​, 
-​ ​               "Access-Control-Expose-Headers"​:"X-Resp,Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Expose-Headers"​, 
-​ ​               "Access-Control-Allow-Headers"​:"X-Resp,Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Expose-Headers"​, 
-​}​;
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,POST,DELETE,PUT,OPTIONS,PATCH",
+    "Access-Control-Allow-Headers":
+      "Content-Type, Access-Control-Allow-Headers, x-test",
+    "Access-Control-Expose-Headers":
+      "X-Resp,Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Expose-Headers",
+    "Access-Control-Allow-Headers":
+      "X-Resp,Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Expose-Headers"}
 const headerTEXT={'Content-Type':"text/html; charset=utf-8", ...CORS}
 const schema = new m.Schema({
     login: {
