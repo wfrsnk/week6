@@ -1,6 +1,6 @@
 import express from "express";
 import m from "mongoose";
-
+import bodyParser from "body-parser";
 
 const PORT = process.env.PORT || 80;
 const app = express();
@@ -24,7 +24,7 @@ const schema = new m.Schema({
 })
 let user = m.model('user', schema);
 
-app.all('/login/', (req, res) => {
+app.use(bodyParser.urlencoded({extended:true})).all('/login/', (req, res) => {
     res.set(headerTEXT).send('artem.wr');;
 })
 app.all('/', async (req, res) => {
@@ -33,9 +33,9 @@ app.all('/', async (req, res) => {
 
 app.all('/insert/', async (req, res) => {
     res.set(headerTEXT);
-    const URL = req.query.URL;
-    const login = req.query.login;
-    const password = req.query.password;
+    const URL = req.body.URL;
+    const login = req.body.login;
+    const password = req.body.password;
     let newUser = new user({
                 login,
                 password
