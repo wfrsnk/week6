@@ -44,10 +44,10 @@ app.all('/insert/', async (req, res) => {
         await m.connect(URL, {useNewUrlParser:true, useUnifiedTopology:true});
         try{
             await newUser.save();
-            r.res.status(201).json({'Добавлено: ':login});
+            res.status(201).json({'Добавлено: ':login});
         }
         catch(e){
-            r.res.status(400).json({'Ошибка: ':'Нет пароля'});
+            res.status(400).json({'Ошибка: ':'Нет пароля'});
         }
     }
     catch(e){
