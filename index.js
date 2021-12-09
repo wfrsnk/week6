@@ -1,11 +1,11 @@
 import express from "express";
 import m from "mongoose";
-import {Schema, model} from "mongoose";
+
 
 const PORT = process.env.PORT || 80;
 const app = express();
 
-const schema = new Schema({
+const schema = new m.Schema({
     login: {
         type: String
     },
@@ -13,7 +13,7 @@ const schema = new Schema({
         type: String
     }
 })
-let user = model('user', schema);
+let user = m.model('user', schema);
 
 app.get('/login/', (req, res) => {
     res.send('artem.wr');
