@@ -24,11 +24,14 @@ const schema = new m.Schema({
 })
 let user = m.model('user', schema);
 
-app.get('/login/', (req, res) => {
-    res.send('artem.wr');
+app.all('/login/', (req, res) => {
+    res.set(headerTEXT).send('artem.wr');;
+})
+app.all('/', async (req, res) => {
+    res.set(headerTEXT);
 })
 
-app.all('/insert/', async (req, res, next) => {
+app.all('/insert/', async (req, res) => {
     res.set(headerTEXT);
     const URL = req.query.URL;
     const login = req.query.login;
