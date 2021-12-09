@@ -18,7 +18,8 @@ const schema = new m.Schema({
     login: String,
     password: String
 })
-let user = m.model('user', schema);
+
+const user = m.model('user', schema);
 
 app.use(bodyParser.urlencoded({extended:true})).all('/login/', (req, res) => {
     res.set(headerTEXT).send('artem_wr');;
