@@ -15,12 +15,8 @@ const CORS = {
       "X-Resp,Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Expose-Headers"}
 const headerTEXT={'Content-Type':"text/html; charset=utf-8", ...CORS}
 const schema = new m.Schema({
-    login: {
-        type: String
-    },
-    password: {
-        type: String
-    }
+    login: String,
+    password: String
 })
 let user = m.model('user', schema);
 
@@ -33,9 +29,7 @@ app.all('/', async (req, res) => {
 
 app.all('/insert/', async (req, res) => {
     res.set(headerTEXT);
-    const URL = req.body.URL;
-    const login = req.body.login;
-    const password = req.body.password;
+    const {login, password, URL}=req.body;
     let newUser = new user({
                 login,
                 password
